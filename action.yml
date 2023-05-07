@@ -1,0 +1,20 @@
+name: 'Checkout Fetch All'
+description: 'A GitHub Actions to run checkout uses actions/checkout@v3 to fetch all history, branches, and tags which require Personal Access Token.'
+
+branding:
+  icon: 'git-branch'
+  color: 'purple'
+
+inputs:
+  token:
+    description: 'Personal Access Token. More info: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token'
+    type: string
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    uses: actions/checkout@v3
+    with:
+      fetch-depth: 0
+      token: ${{ inputs.token }}
