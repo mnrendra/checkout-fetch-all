@@ -14,7 +14,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    uses: actions/checkout@v3
-    with:
-      fetch-depth: 0
-      token: ${{ inputs.token }}
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ inputs.token }}
